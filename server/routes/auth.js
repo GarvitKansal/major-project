@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User } = require("../models/user");
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
+// const cors = require("cors");
 
 router.post("/", async (req, res) => {
 	try {
@@ -34,5 +35,12 @@ const validate = (data) => {
 	});
 	return schema.validate(data);
 };
+
+// /** CORS middleware */
+// export const corsMiddleware = cors({
+//     origin: '*', // Set this to your frontend domain in production
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true // Enable credentials (cookies, headers, etc.)
+// });
 
 module.exports = router;
